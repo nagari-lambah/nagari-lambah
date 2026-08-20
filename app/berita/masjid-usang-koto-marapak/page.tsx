@@ -1,92 +1,121 @@
-import Image from "next/image";
-import Link from "next/link";
-
-import SiteShell from "../../components/SiteShell";
-import PageHeader from "../../components/PageHeader";
-
-const berita = [
-  {
-    href: "/berita/masjid-usang-koto-marapak",
-    tanggal: "21 Agustus 2026",
-    kategori: "Sejarah & Budaya",
-    judul:
-      "Masjid Usang Koto Marapak, Warisan Sejarah dan Syiar Islam di Nagari Lambah",
-    ringkasan:
-      "Masjid Usang Koto Marapak merupakan salah satu bangunan bersejarah Nagari Lambah. Inskripsi 1319 Hijriah pada kayu bangunan menjadi petunjuk penting mengenai masa pembangunan dan peran ulama setempat.",
-    gambar: "/image/sejarah-nagari-lambah.png",
-  },
-  {
-    href: "/berita/mahasiswa-umnatsir-bukittinggi",
-    tanggal: "15 Agustus 2026",
-    kategori: "Kegiatan Nagari",
-    judul:
-      "Mahasiswa UMNatsir Bukittinggi Laksanakan KKN di Nagari Lambah, Mengusung Semangat “Berkarya, Mengabdi dan Berdampak”",
-    ringkasan:
-      "Mahasiswa Universitas Mohammad Natsir Bukittinggi melaksanakan KKN di Nagari Lambah dengan dukungan terhadap digitalisasi nagari, website, dan kelengkapan dokumen PPID.",
-    gambar:
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIlRiRE6q7bQTQCFW0_1DKVUOPXewCJzQNqEN1TSym2DpPfdlz9peYw1KeTBrFjrU4No26Ur2oKE9hCBqC5pg96O3gXnu3PK4V5Rl1nAmgx1gI3tX-kEl3srJ-PsJRcV6JmqcSNb7F0X3zUnpInLsMjKARvTH3-U5L9RybNHSi9HlK9pxq8n-PBUCvQmk/s1600/WhatsApp%20Image%202026-08-15%20at%2014.44.28.jpeg",
-  },
-];
+import SiteShell from "../../../components/SiteShell";
+import PageHeader from "../../../components/PageHeader";
 
 export const metadata = {
-  title: "Berita Nagari Lambah",
+  title: "Masjid Usang Koto Marapak, Warisan Sejarah Nagari Lambah",
   description:
-    "Berita, kegiatan, sejarah, pembangunan, dan informasi terbaru Pemerintah Nagari Lambah.",
+    "Sejarah Masjid Usang Koto Marapak, bangunan bersejarah di Nagari Lambah yang diperkirakan berdiri pada awal abad ke-20.",
 };
 
-export default function BeritaPage() {
+export default function BeritaMasjidUsangKotoMarapak() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Informasi Nagari"
-        title="Berita Nagari Lambah"
-        description="Informasi kegiatan, pembangunan, pelayanan publik, sejarah, dan perkembangan Nagari Lambah."
+        eyebrow="Berita Nagari"
+        title="Masjid Usang Koto Marapak, Warisan Sejarah dan Syiar Islam di Nagari Lambah"
+        description="Jejak sejarah, arsitektur tradisional Minangkabau, dan nilai keagamaan yang tetap hidup hingga hari ini."
       />
 
-      <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {berita.map((item) => (
-            <article
-              key={item.href}
-              className="overflow-hidden rounded-[26px] bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <Link href={item.href} className="block">
-                <div className="relative h-64 w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={item.gambar}
-                    alt={item.judul}
-                    fill
-                    className="object-cover transition duration-500 hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  />
-                </div>
+      <article className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+          <div className="mb-8 border-b border-slate-200 pb-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-600">
+              Sejarah & Budaya
+            </p>
+            <h1 className="mt-3 text-3xl font-bold leading-tight text-[#0d3763] sm:text-4xl">
+              Masjid Usang Koto Marapak, Warisan Sejarah dan Syiar Islam di Nagari Lambah
+            </h1>
+            <p className="mt-4 text-sm text-slate-500">
+              Nagari Lambah · 21 Agustus 2026
+            </p>
+          </div>
 
-                <div className="p-7">
-                  <div className="mb-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
-                    <span className="text-[#f0a000]">{item.tanggal}</span>
-                    <span className="rounded-full bg-[#0f8292]/10 px-3 py-1 text-[#0f8292]">
-                      {item.kategori}
-                    </span>
-                  </div>
+          <div className="space-y-6 text-[17px] leading-8 text-slate-700">
+            <p>
+              Masjid Usang Koto Marapak merupakan salah satu bangunan bersejarah
+              yang memiliki nilai penting dalam perjalanan kehidupan keagamaan
+              dan sosial masyarakat Nagari Lambah, Kecamatan Ampek Angkek.
+              Keberadaannya menjadi saksi perkembangan syiar Islam sekaligus
+              menggambarkan kuatnya hubungan antara agama, adat, dan semangat
+              gotong royong masyarakat Minangkabau.
+            </p>
 
-                  <h2 className="text-2xl font-extrabold leading-snug text-[#0d3763]">
-                    {item.judul}
-                  </h2>
+            <p>
+              Berdasarkan inskripsi yang masih terdapat pada bagian kayu di bawah
+              atap masjid, bangunan ini diperkirakan telah berdiri pada awal
+              abad ke-20. Pada ukiran tersebut tercantum angka tahun 1319
+              Hijriah, yang bertepatan sekitar tahun 1901–1902 Masehi.
+            </p>
 
-                  <p className="mt-4 line-clamp-4 text-base leading-7 text-slate-600">
-                    {item.ringkasan}
-                  </p>
+            <h2 className="pt-4 text-2xl font-bold text-[#0d3763]">
+              Jejak Pembangunan dan Tokoh Ulama
+            </h2>
+            <p>
+              Pembangunan Masjid Usang Koto Marapak dilakukan secara bersama-sama
+              oleh masyarakat dengan semangat gotong royong. Inskripsi pada kayu
+              bangunan menyebut dua tokoh ulama yang mempunyai peran penting,
+              yaitu Majo Indo yang bergelar Tuanku Nan Sati dan Tuanku Nan Basa.
+              Nama Faqih Palimo Sutan juga tercatat sebagai orang yang menulis
+              atau mengukir catatan sejarah tersebut.
+            </p>
 
-                  <div className="mt-6 inline-flex items-center gap-2 font-bold text-[#15588a]">
-                    Baca Selengkapnya
-                    <span aria-hidden="true">→</span>
-                  </div>
-                </div>
-              </Link>
-            </article>
-          ))}
+            <blockquote className="rounded-2xl border-l-4 border-amber-500 bg-amber-50 px-5 py-4 italic text-slate-700">
+              “Nan minta Majo Indo, Gala Tuanku nan Sati sarato Tuanku nan Basa. 1319.”
+            </blockquote>
+
+            <h2 className="pt-4 text-2xl font-bold text-[#0d3763]">
+              Pusat Syiar Islam dan Kehidupan Masyarakat
+            </h2>
+            <p>
+              Pada masa kejayaannya, masjid menjadi tempat salat berjamaah,
+              belajar membaca Al-Qur&apos;an, mendalami ilmu agama, serta mendidik
+              generasi muda. Masjid juga menjadi ruang musyawarah dan pertemuan
+              masyarakat, sehingga fungsinya tidak hanya sebagai pusat ibadah,
+              tetapi juga pusat pendidikan, sosial, dan kemasyarakatan.
+            </p>
+
+            <h2 className="pt-4 text-2xl font-bold text-[#0d3763]">
+              Keunikan Arsitektur Tradisional Minangkabau
+            </h2>
+            <p>
+              Bangunan utama menggunakan konstruksi kayu dengan konsep bangunan
+              panggung. Bagian atap berbentuk limas bertingkat atau tumpang,
+              salah satu ciri yang banyak ditemukan pada masjid tradisional
+              Nusantara. Tradisi masyarakat juga mengenal keberadaan 20 jendela
+              yang dikaitkan dengan 20 sifat wajib Allah.
+            </p>
+
+            <h2 className="pt-4 text-2xl font-bold text-[#0d3763]">
+              Hidup Kembali sebagai Pusat Pendidikan
+            </h2>
+            <p>
+              Pada masa sekarang, Masjid Usang Koto Marapak kembali dimanfaatkan
+              untuk berbagai kegiatan pendidikan dan keagamaan, termasuk pondok
+              tahfiz Al-Qur&apos;an, majelis taklim, pelatihan, pertemuan, serta
+              pembelajaran seni dan tradisi adat.
+            </p>
+
+            <h2 className="pt-4 text-2xl font-bold text-[#0d3763]">
+              Warisan Agama, Adat, dan Gotong Royong
+            </h2>
+            <p>
+              Masjid Usang Koto Marapak merupakan contoh pertemuan antara Islam,
+              adat Minangkabau, keterampilan arsitektur tradisional, dan semangat
+              gotong royong masyarakat. Inskripsi 1319 Hijriah menjadi salah
+              satu bagian paling bernilai karena memberikan petunjuk mengenai
+              tokoh, peran ulama, dan perkiraan masa pembangunan masjid.
+            </p>
+
+            <div className="mt-10 rounded-2xl bg-slate-50 p-5 text-sm leading-7 text-slate-600">
+              <strong>Catatan sejarah:</strong> Penanggalan pembangunan terutama
+              merujuk pada inskripsi angka 1319 Hijriah pada bagian kayu bangunan.
+              Pemaknaan jumlah jendela dan tingkat atap merupakan tradisi serta
+              interpretasi yang berkembang di tengah masyarakat dan masih dapat
+              diperkaya melalui penelitian lanjutan.
+            </div>
+          </div>
         </div>
-      </main>
+      </article>
     </SiteShell>
   );
 }
