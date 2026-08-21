@@ -2,48 +2,75 @@ import Image from "next/image";
 import BeritaBeranda from "../components/BeritaBeranda";
 
 const menu = [
-  { label: "Beranda", href: "#" },
+  { label: "Beranda", href: "/" },
   { label: "Profil", href: "/profil" },
   { label: "Pemerintahan", href: "#pemerintahan" },
   { label: "Lembaga", href: "#lembaga" },
-  { label: "PPID", href: "#ppid" },
-  { label: "Berita", href: "#berita" },
-  { label: "Galeri", href: "#galeri" },
-  { label: "Kontak", href: "#kontak" },
+  { label: "PPID", href: "/ppid" },
+  { label: "Berita", href: "/berita" },
+  { label: "Galeri", href: "/galeri" },
+  { label: "Kontak", href: "/kontak" },
 ];
 
 const layanan = [
   { title: "Profil Nagari", icon: "🏛️", href: "/profil" },
-  { title: "PPID", icon: "📄", href: "#ppid" },
-  { title: "Dokumen Publik", icon: "📚", href: "#ppid" },
-  { title: <BeritaBeranda />, icon: "📰", href: "#berita" },
-  { title: "Galeri", icon: "🖼️", href: "#galeri" },
-  { title: "Kontak", icon: "☎️", href: "#kontak" },
+  { title: "PPID", icon: "📄", href: "/ppid" },
+  { title: "Dokumen Publik", icon: "📚", href: "/ppid" },
+  { title: "Berita Nagari", icon: "📰", href: "/berita" },
+  { title: "Galeri", icon: "🖼️", href: "/galeri" },
+  { title: "Kontak", icon: "☎️", href: "/kontak" },
 ];
 
-const berita = [
+const pemerintahan = [
   {
-    title: "Verifikasi RKP Nagari Lambah Tahun 2027",
-    date: "14 Agustus 2026",
-    category: "Pemerintahan",
+    title: "Perangkat Nagari",
+    desc: "Profil dan struktur perangkat Nagari Lambah.",
+    href: "/profil/perangkat-nagari",
   },
   {
-    title: "Musyawarah Pertanggungjawaban BUMNag Lambah Sakato",
-    date: "4 Agustus 2026",
-    category: "BUMNag",
+    title: "Program & Kegiatan",
+    desc: "Informasi kegiatan pemerintahan dan pembangunan.",
+    href: "/berita",
   },
   {
-    title: "Bimtek Keterbukaan Informasi Publik",
-    date: "7 Juli 2026",
-    category: "PPID",
+    title: "Pelayanan Publik",
+    desc: "Informasi pelayanan yang tersedia bagi masyarakat.",
+    href: "/ppid",
   },
 ];
 
 const lembaga = [
-  "PKK",
-  "BAMUS",
-  "Bundo Kanduang",
-  "LPM",
+  {
+    title: "PKK",
+    href: "/tp-pkk",
+  },
+  {
+    title: "BAMUS",
+    href: "/lembaga",
+  },
+  {
+    title: "Bundo Kanduang",
+    href: "/lembaga",
+  },
+  {
+    title: "LPM",
+    href: "/lembaga",
+  },
+];
+
+const ppidItems = [
+  {
+    title: "Daftar Informasi Publik",
+    href: "/ppid",
+  },
+  {
+    title: "Permohonan Informasi",
+    href: "/ppid",
+  },
+  {
+    title: "Dokumen PPID",
+    href: "/ppid",
+  },
 ];
 
 export default function Home() {
@@ -60,15 +87,16 @@ export default function Home() {
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
-          <a href="#" className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <Image
-              src="/image/Logo-agam.png"
+              src="/image/logo-agam.png"
               alt="Logo Kabupaten Agam"
               width={46}
               height={54}
               priority
               className="h-[52px] w-auto object-contain"
             />
+
             <div>
               <h1 className="text-lg font-black tracking-wide text-[#082f57] sm:text-xl">
                 NAGARI LAMBAH
@@ -93,7 +121,7 @@ export default function Home() {
 
           <div className="flex items-center gap-2">
             <a
-              href="#ppid"
+              href="/ppid"
               className="hidden rounded-xl bg-[#082f57] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#0b467d] md:inline-flex"
             >
               Layanan PPID
@@ -143,13 +171,13 @@ export default function Home() {
 
             <div className="mt-7 flex flex-wrap gap-4">
               <a
-                href="#profil"
+                href="/profil"
                 className="rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-900 shadow-lg transition hover:bg-amber-300"
               >
                 Jelajahi Nagari
               </a>
               <a
-                href="#ppid"
+                href="/ppid"
                 className="rounded-xl border border-white/30 bg-white/5 px-6 py-3 font-bold transition hover:bg-white/10"
               >
                 Layanan PPID
@@ -160,7 +188,7 @@ export default function Home() {
           <div className="relative">
             <div className="relative aspect-video overflow-hidden rounded-[28px] border border-white/20 bg-white/10 shadow-2xl">
               <Image
-                src="/image/Kantor-nagari-lambah.png"
+                src="/image/kantor-nagari-lambah.png"
                 alt="Kantor Wali Nagari Lambah"
                 fill
                 priority
@@ -201,7 +229,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] bg-slate-200 shadow-lg">
             <Image
-              src="/image/Kantor WNLambah.png"
+              src="/image/kantor-nagari-lambah.png"
               alt="Nagari Lambah"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -239,6 +267,13 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            <a
+              href="/profil"
+              className="mt-8 inline-flex rounded-xl bg-[#082f57] px-5 py-3 font-bold text-white transition hover:bg-[#0b467d]"
+            >
+              Selengkapnya tentang Nagari
+            </a>
           </div>
         </div>
       </section>
@@ -275,6 +310,13 @@ export default function Home() {
                 Fiqri Farid
               </p>
               <p className="text-sm text-slate-500">Wali Nagari Lambah</p>
+
+              <a
+                href="/profil/walinagari"
+                className="mt-7 inline-flex rounded-xl border border-[#082f57] px-5 py-3 font-bold text-[#082f57] transition hover:bg-[#082f57] hover:text-white"
+              >
+                Profil Wali Nagari
+              </a>
             </div>
           </div>
         </div>
@@ -298,23 +340,20 @@ export default function Home() {
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              ["Perangkat Nagari", "Profil dan struktur perangkat Nagari Lambah."],
-              ["Program & Kegiatan", "Informasi kegiatan pemerintahan dan pembangunan."],
-              ["Pelayanan Publik", "Informasi pelayanan yang tersedia bagi masyarakat."],
-            ].map(([title, desc]) => (
-              <div
-                key={title}
-                className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200"
+            {pemerintahan.map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="text-3xl">🏢</div>
                 <h3 className="mt-4 text-xl font-black text-[#082f57]">
-                  {title}
+                  {item.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-slate-500">
-                  {desc}
+                  {item.desc}
                 </p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -333,16 +372,16 @@ export default function Home() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {lembaga.map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.title}
+                href={item.href}
                 className="rounded-3xl bg-slate-50 p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="text-3xl">◆</div>
                 <h3 className="mt-4 text-xl font-black text-[#082f57]">
-                  {item}
+                  {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-slate-500">
-                  Profil, kepengurusan dan kegiatan {item} Nagari Lambah.
+                  Profil, kepengurusan dan kegiatan {item.title} Nagari Lambah.
                 </p>
               </a>
             ))}
@@ -368,18 +407,14 @@ export default function Home() {
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              "Daftar Informasi Publik",
-              "Permohonan Informasi",
-              "Dokumen PPID",
-            ].map((item) => (
+            {ppidItems.map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.title}
+                href={item.href}
                 className="rounded-2xl border border-white/10 bg-white/10 p-7 backdrop-blur transition hover:bg-white/15"
               >
                 <div className="text-3xl">📑</div>
-                <h3 className="mt-4 text-lg font-bold">{item}</h3>
+                <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-300">
                   Akses informasi dan dokumen pelayanan publik Nagari Lambah.
                 </p>
@@ -389,78 +424,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BERITA */}
-      <section id="berita" className="px-4 py-24 sm:px-6 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="font-bold uppercase tracking-[0.22em] text-amber-600">
-                Informasi Terkini
-              </p>
-              <h2 className="mt-3 text-3xl font-black text-[#082f57] sm:text-4xl">
-                Berita Nagari
-              </h2>
-            </div>
-            <a href="#" className="font-bold text-[#082f57] hover:text-amber-600">
-              Lihat Semua Berita →
-            </a>
-          </div>
-
-          <div className="grid gap-7 md:grid-cols-3">
-            {berita.map((item) => (
-              <article
-                key={item.title}
-                className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative aspect-video bg-slate-200">
-                  <Image
-                    src="/image/Kantor WNLambah.png"
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-3 text-xl font-bold leading-7 text-[#082f57]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-500">{item.date}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* BERITA TERBARU */}
+      <div id="berita">
+        <BeritaBeranda />
+      </div>
 
       {/* GALERI */}
       <section id="galeri" className="bg-white px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-7xl">
-          <p className="font-bold uppercase tracking-[0.22em] text-amber-600">
-            Dokumentasi
-          </p>
-          <h2 className="mt-3 text-3xl font-black text-[#082f57] sm:text-4xl">
-            Galeri Nagari
-          </h2>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-bold uppercase tracking-[0.22em] text-amber-600">
+                Dokumentasi
+              </p>
+              <h2 className="mt-3 text-3xl font-black text-[#082f57] sm:text-4xl">
+                Galeri Nagari
+              </h2>
+            </div>
+
+            <a
+              href="/galeri"
+              className="font-bold text-[#082f57] transition hover:text-amber-600"
+            >
+              Lihat Galeri →
+            </a>
+          </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((item) => (
-              <div
+              <a
                 key={item}
+                href="/galeri"
                 className="relative aspect-video overflow-hidden rounded-3xl"
               >
                 <Image
-                  src="/image/Kantor WNLambah.png"
+                  src="/image/kantor-nagari-lambah.png"
                   alt={`Galeri Nagari Lambah ${item}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover transition duration-500 hover:scale-105"
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -472,12 +476,13 @@ export default function Home() {
           <div>
             <div className="flex items-center gap-4">
               <Image
-                src="/image/Logo_Agam_Regency (1).png"
+                src="/image/logo-agam.png"
                 alt="Logo Kabupaten Agam"
                 width={60}
                 height={72}
                 className="h-[68px] w-auto object-contain"
               />
+
               <div>
                 <h2 className="text-2xl font-black text-[#082f57]">
                   Pemerintah Nagari Lambah
@@ -489,11 +494,19 @@ export default function Home() {
             </div>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Sumatera Barat, Indonesia
+              Jorong Lambah Tangah, Nagari Lambah
               <br />
-              Informasi alamat, nomor pelayanan dan email resmi dapat
-              ditambahkan pada tahap berikutnya.
+              Kecamatan Ampek Angkek, Kabupaten Agam
+              <br />
+              Sumatera Barat, Indonesia
             </p>
+
+            <a
+              href="/kontak"
+              className="mt-6 inline-flex rounded-xl bg-[#082f57] px-5 py-3 font-bold text-white transition hover:bg-[#0b467d]"
+            >
+              Informasi Kontak
+            </a>
           </div>
 
           <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
@@ -502,6 +515,14 @@ export default function Home() {
               Website ini disiapkan sebagai media informasi dan pelayanan
               digital Pemerintah Nagari Lambah.
             </p>
+            <div className="mt-6 grid gap-3 text-sm text-slate-600">
+              <p>
+                <strong>Email:</strong> nagari.lambah@gmail.com
+              </p>
+              <p>
+                <strong>Telepon:</strong> 0895618462853
+              </p>
+            </div>
           </div>
         </div>
       </section>
