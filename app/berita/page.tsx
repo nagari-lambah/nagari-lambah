@@ -1,50 +1,20 @@
 import Link from "next/link";
 import SiteShell from "../../components/SiteShell";
 import PageHeader from "../../components/PageHeader";
+import berita from "../../data/berita.json";
+import { formatTanggalIndonesia, type Berita } from "../../lib/berita";
 
-const berita = [
-  {
-    href: "/berita/masjid-usang-koto-marapak",
-    tanggal: "21 Agustus 2026",
-    kategori: "Sejarah & Budaya",
-    judul: "Masjid Usang Koto Marapak, Warisan Sejarah dan Syiar Islam di Nagari Lambah",
-    ringkasan:
-      "Masjid Usang Koto Marapak merupakan salah satu bangunan bersejarah Nagari Lambah. Inskripsi 1319 Hijriah pada kayu bangunan menjadi petunjuk penting mengenai masa pembangunan dan peran ulama setempat.",
-    gambar: "/image/sejarah-nagari-lambah.png",
-  },
-  {
-    href: "/berita/mahasiswa-umnatsir-bukittinggi",
-    tanggal: "15 Agustus 2026",
-    kategori: "Kegiatan Nagari",
-    judul: "Mahasiswa UMNatsir Bukittinggi Laksanakan KKN di Nagari Lambah, Mengusung Semangat “Berkarya, Mengabdi dan Berdampak”",
-    ringkasan:
-      "Mahasiswa Universitas Mohammad Natsir Bukittinggi melaksanakan KKN di Nagari Lambah dengan dukungan terhadap digitalisasi nagari, website, dan kelengkapan dokumen PPID.",
-    gambar:
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIlRiRE6q7bQTQCFW0_1DKVUOPXewCJzQNqEN1TSym2DpPfdlz9peYw1KeTBrFjrU4No26Ur2oKE9hCBqC5pg96O3gXnu3PK4V5Rl1nAmgx1gI3tX-kEl3srJ-PsJRcV6JmqcSNb7F0X3zUnpInLsMjKARvTH3-U5L9RybNHSi9HlK9pxq8n-PBUCvQmk/s1600/WhatsApp%20Image%202026-08-15%20at%2014.44.28.jpeg",
-  },
-  {
-    href: "/berita/verifikasi-rkp-nagari-lambah",
-    tanggal: "14 Agustus 2026",
-    kategori: "Perencanaan Nagari",
-    judul: "Verifikasi RKP Nagari Lambah: Menajamkan Rencana Sebelum Menjadi Kegiatan",
-    ringkasan:
-      "Tim RKP Nagari Lambah bersama Tim Verifikasi dan TPP Ampek Angkek melaksanakan fasilitasi dan verifikasi dokumen RKP untuk memastikan kelengkapan administrasi, ketajaman substansi, dan kesiapan kegiatan di lapangan.",
-    gambar:
-      "https://rangkiang.agamkab.go.id/storage/berita/WrRGLjnNxYHELNmXcVuBDRZW27aZL8Mo81Of5xzz.png",
-  },
-  {
-    href: "/berita/musyawarah-pertanggungjawaban-keuangan-bumnag-2025",
-    tanggal: "23 Juli 2026",
-    kategori: "BUMNag",
-    judul: "Musyawarah Nagari Pertanggungjawaban Keuangan 2025 BUMNag Lambah Sakato",
-    ringkasan:
-      "Pemerintah Nagari Lambah bersama BUMNag Lambah Sakato melaksanakan Musyawarah Nagari Pertanggungjawaban Keuangan Tahun 2025 untuk memperkuat transparansi, akuntabilitas, dan tata kelola usaha nagari.",
-    gambar:
-      "https://rangkiang.agamkab.go.id/storage/berita/C4gUw5EHuF8EwtZWrp5N2zIKRa5HE7tovjBQepVj.jpg",
-  },
-];
+export const metadata = {
+  title: "Berita Nagari Lambah",
+  description:
+    "Berita, kegiatan, sejarah, pembangunan, dan informasi Pemerintah Nagari Lambah.",
+};
 
 export default function BeritaPage() {
+  const daftar = [...(berita as Berita[])].sort((a, b) =>
+    b.tanggal.localeCompare(a.tanggal)
+  );
+
   return (
     <SiteShell>
       <PageHeader
@@ -55,23 +25,31 @@ export default function BeritaPage() {
 
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {berita.map((item) => (
+          {daftar.map((item) => (
             <article
-              key={item.href}
+              key={item.slug}
               className="overflow-hidden rounded-[26px] bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <Link href={item.href} className="block">
+              <Link href={`/berita/${item.slug}`} className="block h-full">
                 <div className="h-64 w-full overflow-hidden bg-slate-100">
-                  <img
-                    src={item.gambar}
-                    alt={item.judul}
-                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                  />
+                  {item.gambar ? (
+                    <img
+                      src={item.gambar}
+                      alt={item.judul}
+                      className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-6xl">
+                      📰
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-7">
                   <div className="mb-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
-                    <span className="text-[#f0a000]">{item.tanggal}</span>
+                    <span className="text-[#f0a000]">
+                      {formatTanggalIndonesia(item.tanggal)}
+                    </span>
                     <span className="rounded-full bg-[#0f8292]/10 px-3 py-1 text-[#0f8292]">
                       {item.kategori}
                     </span>
@@ -86,8 +64,7 @@ export default function BeritaPage() {
                   </p>
 
                   <div className="mt-6 inline-flex items-center gap-2 font-bold text-[#15588a]">
-                    Baca Selengkapnya
-                    <span aria-hidden="true">→</span>
+                    Baca Selengkapnya <span aria-hidden="true">→</span>
                   </div>
                 </div>
               </Link>
