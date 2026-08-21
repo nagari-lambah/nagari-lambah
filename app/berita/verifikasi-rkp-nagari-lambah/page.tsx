@@ -11,7 +11,7 @@ export default function VerifikasiRKPNagariLambahPage() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Berita Nagari"
+        eyebrow=<BeritaBeranda />
         title="Verifikasi RKP Nagari Lambah: Menajamkan Rencana Sebelum Menjadi Kegiatan"
         description="Fasilitasi dan verifikasi dokumen RKP Nagari Lambah untuk memperkuat kualitas perencanaan sebelum masuk ke tahapan pelaksanaan."
       />

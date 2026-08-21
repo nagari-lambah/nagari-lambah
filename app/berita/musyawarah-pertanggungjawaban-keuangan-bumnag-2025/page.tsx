@@ -9,7 +9,7 @@ export const metadata = {
 export default function BeritaBUMNag2025Page() {
   return (
     <SiteShell>
-      <PageHeader eyebrow="Berita Nagari" title="Musyawarah Nagari Pertanggungjawaban Keuangan 2025 BUMNag Lambah Sakato" description="Evaluasi pengelolaan, penguatan tata kelola, dan pengembangan usaha BUMNag Lambah Sakato." />
+      <PageHeader eyebrow=<BeritaBeranda /> title="Musyawarah Nagari Pertanggungjawaban Keuangan 2025 BUMNag Lambah Sakato" description="Evaluasi pengelolaan, penguatan tata kelola, dan pengembangan usaha BUMNag Lambah Sakato." />
       <article className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-[28px] bg-white shadow-sm">
           <div className="h-[320px] w-full bg-slate-100 sm:h-[420px]">

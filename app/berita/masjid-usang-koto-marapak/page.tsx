@@ -11,7 +11,7 @@ export default function BeritaMasjidUsangKotoMarapak() {
   return (
     <SiteShell>
       <PageHeader
-        eyebrow="Berita Nagari"
+        eyebrow=<BeritaBeranda />
         title="Masjid Usang Koto Marapak, Warisan Sejarah dan Syiar Islam di Nagari Lambah"
         description="Jejak sejarah, arsitektur tradisional Minangkabau, dan nilai keagamaan yang tetap hidup hingga hari ini."
       />
