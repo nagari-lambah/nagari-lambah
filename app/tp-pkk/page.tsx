@@ -3,33 +3,33 @@ import Link from "next/link";
 import SiteShell from "../../components/SiteShell";
 import PageHeader from "../../components/PageHeader";
 
-const pengurusInti = [
-  {
+const pengurusInti = {
+  ketua: {
     jabatan: "Ketua TP-PKK",
     nama: "Elsa Wahyuni",
-    foto: "/image/tp-pkk/pengurus-inti/elsa-wahyuni.jpg",
+    foto: "/image/pkk/pengurus-inti/elsa-wahyuni.png",
   },
-  {
+  wakilKetua: {
     jabatan: "Wakil Ketua TP-PKK",
     nama: "Hutri Rozana",
-    foto: "/image/tp-pkk/pengurus-inti/hutri-rozana.jpg",
+    foto: "/image/pkk/pengurus-inti/hutri-rozana.png",
   },
-  {
+  sekretaris: {
     jabatan: "Sekretaris",
     nama: "Silvi Ermi Yusti",
-    foto: "/image/tp-pkk/pengurus-inti/silvi-ermi-yusti.jpg",
+    foto: "/image/pkk/pengurus-inti/silvi-ermi-yusti.png",
   },
-  {
+  wakilSekretaris: {
     jabatan: "Wakil Sekretaris",
     nama: "Ria Riska",
-    foto: "/image/tp-pkk/pengurus-inti/ria-riska.jpg",
+    foto: "/image/pkk/pengurus-inti/ria-riska.png",
   },
-  {
+  bendahara: {
     jabatan: "Bendahara",
     nama: "Nanda Wulan Sari",
-    foto: "/image/tp-pkk/pengurus-inti/nanda-wulan-sari.jpg",
+    foto: "/image/pkk/pengurus-inti/nanda-wulan-sari.png",
   },
-];
+};
 
 const pokja = [
   {
@@ -106,68 +106,80 @@ const menuPkk = [
   { title: "Sambutan", href: "#sambutan", icon: "💬" },
   { title: "Visi & Misi", href: "#visi-misi", icon: "🎯" },
   { title: "Struktur", href: "#struktur", icon: "🗂️" },
-  { title: "Pengurus", href: "#pengurus", icon: "👥" },
+  { title: "Pengurus Inti", href: "#pengurus-inti", icon: "👥" },
   { title: "Pokja I–IV", href: "#pokja", icon: "📋" },
-  { title: "Galeri PKK", href: "#galeri", icon: "🖼️" },
+  { title: "Galeri", href: "#galeri", icon: "🖼️" },
 ];
 
 export const metadata = {
   title: "TP-PKK Nagari Lambah",
   description:
-    "Profil, visi misi, struktur organisasi, pengurus dan kelompok kerja TP-PKK Nagari Lambah periode 2023–2029.",
+    "Profil, struktur organisasi, pengurus inti, Pokja I sampai IV, visi misi dan kegiatan TP-PKK Nagari Lambah Periode 2023–2029.",
 };
 
-function PersonCard({
+function PortraitCard({
   jabatan,
   nama,
   foto,
-  highlight = false,
+  utama = false,
 }: {
   jabatan: string;
   nama: string;
   foto: string;
-  highlight?: boolean;
+  utama?: boolean;
 }) {
   return (
     <div
       className={
-        highlight
-          ? "overflow-hidden rounded-[26px] bg-[#0d3763] text-center text-white shadow-lg"
-          : "overflow-hidden rounded-[26px] border border-slate-200 bg-white text-center shadow-sm"
+        utama
+          ? "mx-auto w-full max-w-[320px] overflow-hidden rounded-[30px] border border-amber-300 bg-[#0d3763] shadow-xl"
+          : "mx-auto w-full max-w-[300px] overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
       }
     >
-      <div className="mx-auto mt-6 h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-slate-100 shadow-md">
-        <Image
-          src={foto}
-          alt={`${nama} - ${jabatan} TP-PKK Nagari Lambah`}
-          width={320}
-          height={320}
-          className="h-full w-full object-cover"
-        />
+      <div className="p-4 pb-0">
+        <div
+          className={
+            utama
+              ? "relative aspect-[3/4] overflow-hidden rounded-[24px] border-4 border-amber-300 bg-slate-100"
+              : "relative aspect-[3/4] overflow-hidden rounded-[24px] border-4 border-cyan-100 bg-slate-100"
+          }
+        >
+          <Image
+            src={foto}
+            alt={`${nama} - ${jabatan} TP-PKK Nagari Lambah`}
+            fill
+            sizes="(max-width: 640px) 80vw, 300px"
+            className="object-cover object-top"
+          />
+        </div>
       </div>
 
-      <div className="p-5 pt-4">
+      <div className="px-5 pb-6 pt-5 text-center">
         <p
           className={
-            highlight
-              ? "text-xs font-bold uppercase tracking-wider text-amber-300"
-              : "text-xs font-bold uppercase tracking-wider text-[#0f8292]"
+            utama
+              ? "text-xs font-black uppercase tracking-[0.18em] text-amber-300"
+              : "text-xs font-black uppercase tracking-[0.18em] text-[#0f8292]"
           }
         >
           {jabatan}
         </p>
-        <p
+        <h3
           className={
-            highlight
-              ? "mt-2 text-xl font-black"
+            utama
+              ? "mt-2 text-2xl font-black text-white"
               : "mt-2 text-xl font-black text-[#0d3763]"
           }
         >
           {nama}
-        </p>
+        </h3>
       </div>
     </div>
   );
+}
+
+function Connector() {
+  return <div className="mx-auto h-10 w-px bg-slate-300" />;
 }
 
 export default function TPPKKPage() {
@@ -180,7 +192,7 @@ export default function TPPKKPage() {
       />
 
       <main className="bg-[#f6f8fb]">
-        {/* HERO FOTO BERSAMA */}
+        {/* HERO */}
         <section className="px-4 py-8 sm:px-6 lg:py-10">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-[#0d3763] shadow-xl">
             <div className="relative aspect-[16/8.5] min-h-[360px] w-full">
@@ -192,17 +204,17 @@ export default function TPPKKPage() {
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061f38]/90 via-[#061f38]/15 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#061f38]/90 via-[#061f38]/10 to-transparent" />
 
               <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-9 lg:p-12">
                 <span className="inline-flex rounded-full bg-amber-400 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-slate-900">
-                  TP-PKK Nagari Lambah
+                  Periode 2023–2029
                 </span>
                 <h1 className="mt-4 max-w-4xl text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
                   Bergerak Bersama PKK, Mewujudkan Keluarga Sejahtera
                 </h1>
                 <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-100 sm:text-base">
-                  Bersama membangun keluarga yang sehat, mandiri, berdaya, dan
+                  Bersama membangun keluarga yang sehat, mandiri, berdaya, serta
                   berperan aktif dalam kemajuan Nagari Lambah.
                 </p>
               </div>
@@ -210,7 +222,7 @@ export default function TPPKKPage() {
           </div>
         </section>
 
-        {/* NAVIGASI */}
+        {/* MENU */}
         <section className="px-4 pb-16 sm:px-6">
           <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {menuPkk.map((item) => (
@@ -239,26 +251,40 @@ export default function TPPKKPage() {
               Sambutan Ketua TP-PKK Nagari Lambah
             </h2>
 
-            <div className="mt-8 rounded-[28px] bg-gradient-to-br from-emerald-50 to-cyan-50 p-7 ring-1 ring-slate-200 sm:p-9">
-              <p className="text-lg font-black text-[#0d3763]">Elsa Wahyuni</p>
-              <p className="mt-1 text-sm font-semibold text-[#0f8292]">
-                Ketua TP-PKK Nagari Lambah
-              </p>
+            <div className="mt-8 grid gap-8 rounded-[28px] bg-gradient-to-br from-emerald-50 to-cyan-50 p-7 ring-1 ring-slate-200 md:grid-cols-[220px_1fr] md:items-center sm:p-9">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-[210px] overflow-hidden rounded-[24px] border-4 border-white bg-white shadow-lg">
+                <Image
+                  src={pengurusInti.ketua.foto}
+                  alt="Elsa Wahyuni - Ketua TP-PKK Nagari Lambah"
+                  fill
+                  sizes="210px"
+                  className="object-cover object-top"
+                />
+              </div>
 
-              <div className="mt-6 space-y-5 leading-8 text-slate-600">
-                <p>Assalamu&apos;alaikum Warahmatullahi Wabarakatuh.</p>
-                <p>
-                  Puji syukur ke hadirat Allah SWT atas segala rahmat dan
-                  karunia-Nya. Halaman TP-PKK Nagari Lambah ini dihadirkan
-                  sebagai media informasi, dokumentasi, dan komunikasi bagi
-                  kader PKK serta masyarakat.
+              <div>
+                <p className="text-xl font-black text-[#0d3763]">
+                  Elsa Wahyuni
                 </p>
-                <p>
-                  Melalui semangat kebersamaan dan gotong royong, TP-PKK Nagari
-                  Lambah berkomitmen mendukung terwujudnya keluarga yang sehat,
-                  mandiri, sejahtera, berdaya, serta aktif dalam pembangunan
-                  nagari.
+                <p className="mt-1 text-sm font-semibold text-[#0f8292]">
+                  Ketua TP-PKK Nagari Lambah
                 </p>
+
+                <div className="mt-6 space-y-5 leading-8 text-slate-600">
+                  <p>Assalamu&apos;alaikum Warahmatullahi Wabarakatuh.</p>
+                  <p>
+                    Puji syukur ke hadirat Allah SWT atas segala rahmat dan
+                    karunia-Nya. Halaman TP-PKK Nagari Lambah ini dihadirkan
+                    sebagai media informasi, dokumentasi, dan komunikasi bagi
+                    kader PKK serta masyarakat.
+                  </p>
+                  <p>
+                    Melalui semangat kebersamaan dan gotong royong, TP-PKK
+                    Nagari Lambah berkomitmen mendukung terwujudnya keluarga
+                    yang sehat, mandiri, sejahtera, berdaya, serta aktif dalam
+                    pembangunan nagari.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -320,8 +346,8 @@ export default function TPPKKPage() {
           </div>
         </section>
 
-        {/* STRUKTUR TEKS / RESPONSIF */}
-        <section id="pengurus" className="px-4 py-16 sm:px-6">
+        {/* PENGURUS INTI SESUAI HIERARKI STRUKTUR */}
+        <section id="pengurus-inti" className="px-4 py-16 sm:px-6">
           <div className="mx-auto max-w-7xl">
             <div className="text-center">
               <p className="font-bold uppercase tracking-[0.2em] text-amber-600">
@@ -332,44 +358,33 @@ export default function TPPKKPage() {
               </h2>
             </div>
 
-            <div className="mx-auto mt-10 max-w-5xl">
-              <div className="mx-auto max-w-md">
-                <PersonCard
-                  jabatan={pengurusInti[0].jabatan}
-                  nama={pengurusInti[0].nama}
-                  foto={pengurusInti[0].foto}
-                  highlight
-                />
+            <div className="mx-auto mt-12 max-w-6xl">
+              {/* 1. KETUA */}
+              <PortraitCard {...pengurusInti.ketua} utama />
+
+              <Connector />
+
+              {/* 2. WAKIL KETUA */}
+              <PortraitCard {...pengurusInti.wakilKetua} />
+
+              <Connector />
+
+              {/* 3. SEKRETARIS & BENDAHARA */}
+              <div className="relative">
+                <div className="absolute left-1/2 top-0 hidden h-px w-[52%] -translate-x-1/2 bg-slate-300 sm:block" />
+                <div className="grid gap-8 pt-0 sm:grid-cols-2 sm:pt-6">
+                  <PortraitCard {...pengurusInti.sekretaris} />
+                  <PortraitCard {...pengurusInti.bendahara} />
+                </div>
               </div>
 
-              <div className="mx-auto h-8 w-px bg-slate-300" />
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <PersonCard
-                  jabatan={pengurusInti[1].jabatan}
-                  nama={pengurusInti[1].nama}
-                  foto={pengurusInti[1].foto}
-                />
-                <PersonCard
-                  jabatan={pengurusInti[2].jabatan}
-                  nama={pengurusInti[2].nama}
-                  foto={pengurusInti[2].foto}
-                />
-              </div>
-
-              <div className="mx-auto h-8 w-px bg-slate-300" />
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <PersonCard
-                  jabatan={pengurusInti[3].jabatan}
-                  nama={pengurusInti[3].nama}
-                  foto={pengurusInti[3].foto}
-                />
-                <PersonCard
-                  jabatan={pengurusInti[4].jabatan}
-                  nama={pengurusInti[4].nama}
-                  foto={pengurusInti[4].foto}
-                />
+              {/* 4. WAKIL SEKRETARIS DI BAWAH SEKRETARIS */}
+              <div className="mt-8 grid gap-8 sm:grid-cols-2">
+                <div>
+                  <Connector />
+                  <PortraitCard {...pengurusInti.wakilSekretaris} />
+                </div>
+                <div className="hidden sm:block" />
               </div>
             </div>
           </div>
@@ -419,7 +434,7 @@ export default function TPPKKPage() {
           </div>
         </section>
 
-        {/* INFO PUBLIK */}
+        {/* INFO */}
         <section className="bg-[#0d3763] px-4 py-16 text-white sm:px-6">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -435,6 +450,7 @@ export default function TPPKKPage() {
                   arsip, laporan kegiatan, dan dokumentasi pemberdayaan keluarga.
                 </p>
               </div>
+
               <Link
                 href="/ppid"
                 className="inline-flex rounded-xl bg-amber-400 px-6 py-3 font-black text-slate-900 transition hover:bg-amber-300"
