@@ -336,7 +336,7 @@ export default function TPPKKPage() {
 
             <div className="mt-10 overflow-hidden rounded-[28px] bg-[#062f4c] shadow-xl">
               <Image
-                src="/image/tp-pkk/struktur-pengurus-tp-pkk.png"
+                src="/image/pkk/pengurus-inti/struktur-pengurus-tp-pkk.png"
                 alt="Struktur Pengurus TP-PKK Nagari Lambah Periode 2023–2029"
                 width={1728}
                 height={882}
