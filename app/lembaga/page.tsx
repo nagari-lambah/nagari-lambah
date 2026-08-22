@@ -10,7 +10,7 @@ export default function Page() {
         <SectionCard>
           <div className="rounded-2xl bg-[#fff9e8] p-6">
             <p className="leading-8 text-slate-700">
-              Konten halaman ini siap diisi dan sudah menggunakan tema seragam Nagari Lambah.
+              Konten halaman ini dalam pembangunan.
             </p>
           </div>
         </SectionCard>
