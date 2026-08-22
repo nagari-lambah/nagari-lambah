@@ -264,7 +264,7 @@ export default function TPPKKPage() {
 
               <div>
                 <p className="text-xl font-black text-[#0d3763]">
-                  Elsa Wahyuni
+                  Ny Elsa Fiqri Farid
                 </p>
                 <p className="mt-1 text-sm font-semibold text-[#0f8292]">
                   Ketua TP-PKK Nagari Lambah
