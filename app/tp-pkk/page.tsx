@@ -4,11 +4,31 @@ import SiteShell from "../../components/SiteShell";
 import PageHeader from "../../components/PageHeader";
 
 const pengurusInti = [
-  { jabatan: "Ketua TP-PKK", nama: "Elsa Wahyuni" },
-  { jabatan: "Wakil Ketua TP-PKK", nama: "Hutri Rozana" },
-  { jabatan: "Sekretaris", nama: "Silvi Ermi Yusti" },
-  { jabatan: "Wakil Sekretaris", nama: "Ria Riska" },
-  { jabatan: "Bendahara", nama: "Nanda Wulan Sari" },
+  {
+    jabatan: "Ketua TP-PKK",
+    nama: "Elsa Wahyuni",
+    foto: "/image/tp-pkk/pengurus-inti/elsa-wahyuni.jpg",
+  },
+  {
+    jabatan: "Wakil Ketua TP-PKK",
+    nama: "Hutri Rozana",
+    foto: "/image/tp-pkk/pengurus-inti/hutri-rozana.jpg",
+  },
+  {
+    jabatan: "Sekretaris",
+    nama: "Silvi Ermi Yusti",
+    foto: "/image/tp-pkk/pengurus-inti/silvi-ermi-yusti.jpg",
+  },
+  {
+    jabatan: "Wakil Sekretaris",
+    nama: "Ria Riska",
+    foto: "/image/tp-pkk/pengurus-inti/ria-riska.jpg",
+  },
+  {
+    jabatan: "Bendahara",
+    nama: "Nanda Wulan Sari",
+    foto: "/image/tp-pkk/pengurus-inti/nanda-wulan-sari.jpg",
+  },
 ];
 
 const pokja = [
@@ -100,38 +120,52 @@ export const metadata = {
 function PersonCard({
   jabatan,
   nama,
+  foto,
   highlight = false,
 }: {
   jabatan: string;
   nama: string;
+  foto: string;
   highlight?: boolean;
 }) {
   return (
     <div
       className={
         highlight
-          ? "rounded-2xl bg-[#0d3763] p-5 text-center text-white shadow-lg"
-          : "rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm"
+          ? "overflow-hidden rounded-[26px] bg-[#0d3763] text-center text-white shadow-lg"
+          : "overflow-hidden rounded-[26px] border border-slate-200 bg-white text-center shadow-sm"
       }
     >
-      <p
-        className={
-          highlight
-            ? "text-xs font-bold uppercase tracking-wider text-amber-300"
-            : "text-xs font-bold uppercase tracking-wider text-[#0f8292]"
-        }
-      >
-        {jabatan}
-      </p>
-      <p
-        className={
-          highlight
-            ? "mt-2 text-lg font-black"
-            : "mt-2 text-lg font-black text-[#0d3763]"
-        }
-      >
-        {nama}
-      </p>
+      <div className="mx-auto mt-6 h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-slate-100 shadow-md">
+        <Image
+          src={foto}
+          alt={`${nama} - ${jabatan} TP-PKK Nagari Lambah`}
+          width={320}
+          height={320}
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      <div className="p-5 pt-4">
+        <p
+          className={
+            highlight
+              ? "text-xs font-bold uppercase tracking-wider text-amber-300"
+              : "text-xs font-bold uppercase tracking-wider text-[#0f8292]"
+          }
+        >
+          {jabatan}
+        </p>
+        <p
+          className={
+            highlight
+              ? "mt-2 text-xl font-black"
+              : "mt-2 text-xl font-black text-[#0d3763]"
+          }
+        >
+          {nama}
+        </p>
+      </div>
     </div>
   );
 }
@@ -296,10 +330,6 @@ export default function TPPKKPage() {
               <h2 className="mt-3 text-3xl font-black text-[#0d3763] sm:text-4xl">
                 Pengurus TP-PKK Nagari Lambah
               </h2>
-              <p className="mx-auto mt-4 max-w-3xl leading-7 text-slate-600">
-                Daftar teks disediakan agar susunan pengurus tetap mudah dibaca
-                pada perangkat seluler.
-              </p>
             </div>
 
             <div className="mx-auto mt-10 max-w-5xl">
@@ -307,6 +337,7 @@ export default function TPPKKPage() {
                 <PersonCard
                   jabatan={pengurusInti[0].jabatan}
                   nama={pengurusInti[0].nama}
+                  foto={pengurusInti[0].foto}
                   highlight
                 />
               </div>
@@ -317,10 +348,12 @@ export default function TPPKKPage() {
                 <PersonCard
                   jabatan={pengurusInti[1].jabatan}
                   nama={pengurusInti[1].nama}
+                  foto={pengurusInti[1].foto}
                 />
                 <PersonCard
                   jabatan={pengurusInti[2].jabatan}
                   nama={pengurusInti[2].nama}
+                  foto={pengurusInti[2].foto}
                 />
               </div>
 
@@ -330,10 +363,12 @@ export default function TPPKKPage() {
                 <PersonCard
                   jabatan={pengurusInti[3].jabatan}
                   nama={pengurusInti[3].nama}
+                  foto={pengurusInti[3].foto}
                 />
                 <PersonCard
                   jabatan={pengurusInti[4].jabatan}
                   nama={pengurusInti[4].nama}
+                  foto={pengurusInti[4].foto}
                 />
               </div>
             </div>
