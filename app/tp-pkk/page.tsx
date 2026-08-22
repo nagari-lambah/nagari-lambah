@@ -255,7 +255,7 @@ export default function TPPKKPage() {
               <div className="relative mx-auto aspect-[3/4] w-full max-w-[210px] overflow-hidden rounded-[24px] border-4 border-white bg-white shadow-lg">
                 <Image
                   src={pengurusInti.ketua.foto}
-                  alt="Elsa Wahyuni - Ketua TP-PKK Nagari Lambah"
+                  alt="Ny Elsa Fiqri Farid - Ketua TP-PKK Nagari Lambah"
                   fill
                   sizes="210px"
                   className="object-cover object-top"
