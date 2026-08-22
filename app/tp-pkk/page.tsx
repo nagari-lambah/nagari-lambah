@@ -6,12 +6,12 @@ import PageHeader from "../../components/PageHeader";
 const pengurusInti = {
   ketua: {
     jabatan: "Ketua TP-PKK",
-    nama: "Elsa Wahyuni",
+    nama: "Ny Elsa Fiqri Farid",
     foto: "/image/pkk/pengurus-inti/elsa-wahyuni.png",
   },
   wakilKetua: {
     jabatan: "Wakil Ketua TP-PKK",
-    nama: "Hutri Rozana",
+    nama: "Ny Roza Ferri Dharma",
     foto: "/image/pkk/pengurus-inti/hutri-rozana.png",
   },
   sekretaris: {
