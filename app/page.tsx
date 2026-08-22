@@ -3,6 +3,7 @@ import BeritaBeranda from "../components/BeritaBeranda";
 import GaleriBeranda from "../components/GaleriBeranda";
 import KantorNagariMap from "../components/KantorNagariMap";
 
+
 const menu = [
   { label: "Beranda", href: "/" },
   { label: "Profil", href: "/profil" },
@@ -275,15 +276,14 @@ export default function Home() {
       <section className="bg-white px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-7xl rounded-[32px] bg-gradient-to-br from-slate-50 to-blue-50 p-8 ring-1 ring-slate-200 lg:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200">
-              <div className="flex h-full items-center justify-center text-center text-slate-400">
-                <div>
-                  <div className="text-6xl">👤</div>
-                  <p className="mt-3 text-sm font-semibold">
-                    Foto Wali Nagari
-                  </p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200 shadow-lg">
+              <Image
+                src="/image/wali-nagari/fikri-farid.jpeg"
+                alt="Wali Nagari Lambah"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top"
+              />
             </div>
 
             <div>
