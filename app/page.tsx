@@ -1,6 +1,8 @@
 import Image from "next/image";
 import BeritaBeranda from "../components/BeritaBeranda";
+import GaleriBeranda from "../components/GaleriBeranda";
 import KantorNagariMap from "../components/KantorNagariMap";
+import TentangNagariBeranda from "../components/TentangNagariBeranda";
 
 const menu = [
   { label: "Beranda", href: "/" },
@@ -243,7 +245,7 @@ export default function Home() {
               Tentang Nagari
             </p>
             <h2 className="mt-3 text-3xl font-black text-[#082f57] sm:text-4xl">
-              <KantorNagariMap />
+              Mengenal Nagari Lambah
             </h2>
             <p className="mt-6 leading-8 text-slate-600">
               Nagari Lambah merupakan salah satu nagari yang berada di
@@ -283,15 +285,14 @@ export default function Home() {
       <section className="bg-white px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-7xl rounded-[32px] bg-gradient-to-br from-slate-50 to-blue-50 p-8 ring-1 ring-slate-200 lg:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200">
-              <div className="flex h-full items-center justify-center text-center text-slate-400">
-                <div>
-                  <div className="text-6xl">👤</div>
-                  <p className="mt-3 text-sm font-semibold">
-                    Foto Wali Nagari
-                  </p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200 shadow-lg">
+              <Image
+                src="/image/wali-nagari/fikri-farid.jpeg"
+                alt="Wali Nagari Lambah"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top"
+              />
             </div>
 
             <div>
@@ -431,45 +432,7 @@ export default function Home() {
       </div>
 
       {/* GALERI */}
-      <section id="galeri" className="bg-white px-4 py-24 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="font-bold uppercase tracking-[0.22em] text-amber-600">
-                Dokumentasi
-              </p>
-              <h2 className="mt-3 text-3xl font-black text-[#082f57] sm:text-4xl">
-                Galeri Nagari
-              </h2>
-            </div>
-
-            <a
-              href="/galeri"
-              className="font-bold text-[#082f57] transition hover:text-amber-600"
-            >
-              Lihat Galeri →
-            </a>
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((item) => (
-              <a
-                key={item}
-                href="/galeri"
-                className="relative aspect-video overflow-hidden rounded-3xl"
-              >
-                <Image
-                  src="/image/kantor-nagari-lambah.png"
-                  alt={`Galeri Nagari Lambah ${item}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover transition duration-500 hover:scale-105"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GaleriBeranda />
 
       {/* KONTAK */}
       <section id="kontak" className="border-t bg-slate-50 px-4 py-20 sm:px-6">
