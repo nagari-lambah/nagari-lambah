@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BeritaBeranda from "../components/BeritaBeranda";
+import KantorNagariMap from "../components/KantorNagariMap";
 
 const menu = [
   { label: "Beranda", href: "/" },
@@ -242,7 +243,7 @@ export default function Home() {
               Tentang Nagari
             </p>
             <h2 className="mt-3 text-3xl font-black text-[#082f57] sm:text-4xl">
-              Mengenal Nagari Lambah
+              <KantorNagariMap />
             </h2>
             <p className="mt-6 leading-8 text-slate-600">
               Nagari Lambah merupakan salah satu nagari yang berada di
