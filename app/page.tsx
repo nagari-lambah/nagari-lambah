@@ -2,12 +2,14 @@ import Image from "next/image";
 import BeritaBeranda from "../components/BeritaBeranda";
 import GaleriBeranda from "../components/GaleriBeranda";
 import KantorNagariMap from "../components/KantorNagariMap";
+import HeroBeritaSlider from "../components/HeroBeritaSlider";
 
 
 const menu = [
   { label: "Beranda", href: "/" },
   { label: "Profil", href: "/profil" },
   { label: "Pemerintahan", href: "#pemerintahan" },
+  { label: "TP-PKK", href: "/tp-pkk" },
   { label: "Lembaga", href: "#lembaga" },
   { label: "PPID", href: "/ppid" },
   { label: "Berita", href: "/berita" },
@@ -44,20 +46,36 @@ const pemerintahan = [
 
 const lembaga = [
   {
-    title: "PKK",
-    href: "/tp-pkk",
+    title: "BAMUS",
+    href: "/lembaga/bamus",
   },
   {
-    title: "BAMUS",
-    href: "/lembaga",
+    title: "KAN",
+    href: "/lembaga/kan",
   },
   {
     title: "Bundo Kanduang",
-    href: "/lembaga",
+    href: "/lembaga/bundo-kanduang",
   },
   {
-    title: "LPM",
-    href: "/lembaga",
+    title: "KADARKUM",
+    href: "/lembaga/kadarkum",
+  },
+  {
+    title: "Karang Taruna",
+    href: "/lembaga/karang-taruna",
+  },
+  {
+    title: "LPMN",
+    href: "/lembaga/lpmn",
+  },
+  {
+    title: "PERMATA",
+    href: "/lembaga/permata",
+  },
+  {
+    title: "POSBAKUM",
+    href: "/lembaga/posbakum",
   },
 ];
 
@@ -189,22 +207,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-video overflow-hidden rounded-[28px] border border-white/20 bg-white/10 shadow-2xl">
-              <Image
-                src="/image/kantor-nagari-lambah.png"
-                alt="Kantor Wali Nagari Lambah"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5">
-                <p className="text-sm font-semibold sm:text-base">
-                  Kantor Wali Nagari Lambah
-                </p>
-              </div>
-            </div>
+            <HeroBeritaSlider />
           </div>
         </div>
       </section>
