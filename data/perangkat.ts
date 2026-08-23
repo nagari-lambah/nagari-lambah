@@ -132,7 +132,9 @@ export const perangkat: Perangkat[] = [
         posisi: "Bendahara Penerimaan dan Pengeluaran",
         lama: "1 tahun",
         periode: "2004 – 2005",
-        uraian: ["Mencatat dan membukukan penerimaan dan pengeluaran."],
+        uraian: [
+          "Mencatat dan membukukan penerimaan dan pengeluaran.",
+        ],
       },
       {
         lembaga: "Pemerintah Nagari Lambah",
@@ -285,7 +287,66 @@ export const perangkat: Perangkat[] = [
     tempatTanggalLahir: "Bukittinggi, 2 September 1986",
     alamat: "Nagari Lambah, Kecamatan Ampek Angkek, Kabupaten Agam",
     foto: "/image/perangkat/mega-lamoranedi.jpg",
+    pendidikan: [
+      {
+        jenjang: "SMA / sederajat",
+        institusi: "SMAN 1 Ampek Angkek",
+        masuk: "2002",
+        lulus: "2005",
+      },
+      {
+        jenjang: "SMP / sederajat",
+        institusi: "SLTPN 02 Ampek Angkek",
+        masuk: "1999",
+        lulus: "2002",
+      },
+      {
+        jenjang: "SD",
+        institusi: "Sekolah Dasar Negeri 03 Biaro",
+        masuk: "1993",
+        lulus: "1999",
+      },
+    ],
+    riwayatJabatan: [
+      {
+        lembaga: "Wali Jorong Lambah Tangah",
+        posisi: "Sekretaris  Jorong",
+        lama: "2 tahun",
+        periode: "2008 – 2010",
+        uraian: [
+          "Membantu kepala kewilayahan/wali jorong untuk administrasi pelayanan masyarakat jorong, pemungutan pajak.",
+        ],
+      },
+      {
+        lembaga: "Pemerintah Nagari Lambah",
+        posisi: "Kepala Urusan Tata Usaha dan Umum",
+        lama: "9 tahun",
+        periode: "2010 – 2019",
+        uraian: [
+          "Membantu sekretaris nagari dalam urusan pelayan umum, kearsipan dan ketatausahaan pemerintah nagari",
+        ],
+      },
+      {
+        lembaga: "Pemerintah Nagari Lambah",
+        posisi: "Kepala Seksi Pelayanan",
+        lama: "2 tahun",
+        periode: "2019 – 2021",
+        uraian: [
+          "Membantu wali nagari untuk memberikan pelayanan kepada masyarakat di bidang keagamaan, kebudayaan, kesehatan, pendidikan non formal",
+        ],
+      },
+      {
+        lembaga: "Pemerintah Nagari Lambah",
+        posisi: "Kepala Urusan Tata Usaha dan Umum",
+        lama: "-",
+        periode: "2021 – sekarang",
+        uraian: [
+          "Membantu sekretaris nagari dalam urusan pelayan umum, kearsipan dan ketatausahaan pemerintah nagari",
+        ],
+      },
+    ],
   },
+
 
   {
     slug: "reni-yulia",
@@ -320,7 +381,9 @@ export const perangkat: Perangkat[] = [
         posisi: "Bendahara Penerimaan dan Pengeluaran",
         lama: "1 tahun",
         periode: "2004 – 2005",
-        uraian: ["Mencatat dan membukukan penerimaan dan pengeluaran."],
+        uraian: [
+          "Mencatat dan membukukan penerimaan dan pengeluaran.",
+        ],
       },
       {
         lembaga: "Pemerintah Nagari Lambah",
