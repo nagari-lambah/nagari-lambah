@@ -18,12 +18,12 @@ const menu = [
 ];
 
 const layanan = [
-  { title: "Profil Nagari", icon: "🏛️", href: "/profil" },
-  { title: "PPID", icon: "📄", href: "/ppid" },
-  { title: "Dokumen Publik", icon: "📚", href: "/ppid" },
-  { title: "Berita Nagari", icon: "📰", href: "/berita" },
-  { title: "Galeri", icon: "🖼️", href: "/galeri" },
-  { title: "Kontak", icon: "☎️", href: "/kontak" },
+  { title: "Profil Nagari", icon: "🏛️", href: "/profil", desc: "Sejarah dan profil Nagari Lambah" },
+  { title: "Pelayanan", icon: "🤝", href: "/pelayanan", desc: "Informasi pelayanan masyarakat" },
+  { title: "PPID", icon: "📄", href: "/ppid", desc: "Keterbukaan informasi publik" },
+  { title: "Dokumen Publik", icon: "📚", href: "/ppid", desc: "Akses dokumen publik nagari" },
+  { title: "Berita Nagari", icon: "📰", href: "/berita", desc: "Berita dan kegiatan terbaru" },
+  { title: "Galeri", icon: "🖼️", href: "/galeri", desc: "Dokumentasi kegiatan nagari" },
 ];
 
 const pemerintahan = [
@@ -219,16 +219,41 @@ export default function Home() {
             <a
               key={item.title}
               href={item.href}
-              className="group rounded-2xl p-5 text-center transition hover:-translate-y-1 hover:bg-slate-50"
+              className="group rounded-2xl p-4 text-center transition duration-300 hover:-translate-y-1 hover:bg-slate-50 hover:shadow-sm"
             >
               <div className="text-3xl">{item.icon}</div>
               <h3 className="mt-3 text-sm font-bold text-[#082f57]">
                 {item.title}
               </h3>
+              <p className="mt-1 hidden text-xs leading-5 text-slate-500 lg:block">
+                {item.desc}
+              </p>
             </a>
           ))}
         </div>
       </section>
+
+      {/* INFORMASI CEPAT */}
+      <section className="px-4 pt-10 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-3">
+            <span className="text-xl" aria-hidden="true">📢</span>
+            <div>
+              <p className="font-bold text-[#082f57]">Informasi & Pelayanan Nagari</p>
+              <p className="mt-1 text-sm leading-6 text-slate-600">
+                Akses informasi pemerintahan, pelayanan masyarakat, PPID, berita dan kegiatan Nagari Lambah dalam satu portal.
+              </p>
+            </div>
+          </div>
+          <a
+            href="/kontak"
+            className="inline-flex shrink-0 justify-center rounded-xl bg-[#082f57] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#0b467d]"
+          >
+            Hubungi Nagari
+          </a>
+        </div>
+      </section>
+
       {/* PROFIL */}
       <section id="profil" className="px-4 py-24 sm:px-6 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
@@ -488,6 +513,8 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="bg-[#061f38] px-4 py-8 text-center text-sm text-slate-400 sm:px-6">
         © 2026 Pemerintah Nagari Lambah · Kecamatan Ampek Angkek · Kabupaten Agam
+        <span className="mx-2 hidden sm:inline">|</span>
+        <span className="block sm:inline">Website Informasi & Pelayanan Publik</span>
       </footer>
     </main>
   );

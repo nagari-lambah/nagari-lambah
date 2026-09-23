@@ -110,8 +110,72 @@ export default function DetailBeritaPage() {
                 )}
 
                 <div className="rounded-[28px] bg-white p-6 shadow-sm ring-1 ring-slate-200 sm:p-9 lg:p-12">
-                  <div className="space-y-5 text-[17px] leading-8 text-slate-700">
-                    <BeritaContent isi={berita.isi} />
+                  <div
+                    className="
+                      berita-content
+                      space-y-5
+                      text-[17px]
+                      leading-8
+                      text-slate-700
+
+                      [&_h2]:mt-10
+                      [&_h2]:text-2xl
+                      [&_h2]:font-black
+                      [&_h2]:leading-tight
+                      [&_h2]:text-[#0d3763]
+
+                      [&_h3]:mt-8
+                      [&_h3]:text-xl
+                      [&_h3]:font-black
+                      [&_h3]:text-[#0d3763]
+
+                      [&_p]:my-5
+
+                      [&_ol]:my-6
+                      [&_ol]:list-decimal
+                      [&_ol]:space-y-3
+                      [&_ol]:pl-7
+
+                      [&_ul]:my-6
+                      [&_ul]:list-disc
+                      [&_ul]:space-y-3
+                      [&_ul]:pl-7
+
+                      [&_strong]:font-black
+                      [&_strong]:text-slate-800
+
+                      [&_blockquote]:my-8
+                      [&_blockquote]:rounded-2xl
+                      [&_blockquote]:bg-[#0d3763]
+                      [&_blockquote]:px-6
+                      [&_blockquote]:py-5
+                      [&_blockquote]:text-center
+                      [&_blockquote]:font-bold
+                      [&_blockquote]:text-white
+
+                      [&_figure]:my-9
+                      [&_figure]:text-center
+
+                      [&_figure_img]:mx-auto
+                      [&_figure_img]:h-auto
+                      [&_figure_img]:max-h-[720px]
+                      [&_figure_img]:w-full
+                      [&_figure_img]:rounded-2xl
+                      [&_figure_img]:object-contain
+                      [&_figure_img]:shadow-md
+
+                      [&_figcaption]:mt-3
+                      [&_figcaption]:text-sm
+                      [&_figcaption]:italic
+                      [&_figcaption]:leading-6
+                      [&_figcaption]:text-slate-500
+                    "
+                  >
+                    {/<[a-z][\s\S]*>/i.test(berita.isi) ? (
+                      <div dangerouslySetInnerHTML={{ __html: berita.isi }} />
+                    ) : (
+                      <BeritaContent isi={berita.isi} />
+                    )}
                   </div>
                 </div>
 
