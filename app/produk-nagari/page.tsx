@@ -43,7 +43,7 @@ const daftarProduk = [
     ],
     harga: "Hubungi Pengrajin / Sesuai Paket",
     katalogPdf: "/dokumen/katalog-cbb-bunglin.pdf",
-    pesanWa: "https://wa.me.",
+    pesanWa: "https://6285263337711.",
   },
   {
     id: 2,
@@ -58,7 +58,7 @@ const daftarProduk = [
     ],
     harga: "Hubungi Pengrajin / Custom",
     katalogPdf: "/dokumen/katalog-produk-turunan.pdf",
-    pesanWa: "https://wa.me.",
+    pesanWa: "https://6285263337711.",
   },
 ];
 export default function ProdukNagariPage() {
