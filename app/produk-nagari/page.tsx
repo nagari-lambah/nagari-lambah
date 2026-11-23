@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Image from "next/image";
 
-const NOMOR_WA_PENGRAJIN = "6281234567890";
+const NOMOR_WA_PENGRAJIN = "62895618462853";
 
 interface LightboxData {
   src: string;
