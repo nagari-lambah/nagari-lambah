@@ -28,7 +28,7 @@ const produkMeubeler = [
       "Lemari kayu kokoh buatan tangan pengrajin Nagari Lambah dengan konstruksi kuat, pengerjaan halus, dan ukuran yang dapat disesuaikan (custom).",
     harga: "Mulai Rp 2.500.000",
     pesanWa:
-      "https://wa.me.",
+      "https://wa.me).",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const produkMeubeler = [
       "Berbagai model meja kayu fungsional untuk kebutuhan rumah tangga, perkantoran nagari, maupun ruang kelas sekolah.",
     harga: "Mulai Rp 3.850.000",
     pesanWa:
-      "https://wa.me.",
+      "https://wa.me).",
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ const produkMeubeler = [
       "Meja dan kursi belajar kayu ergonomis untuk ruang kelas maupun rumah dengan konstruksi kokoh dan lapisan finishing tahan lama.",
     harga: "Mulai Rp 650.000 / set",
     pesanWa:
-      "https://wa.me.",
+      "https://wa.me).",
   },
 ];
 export default function ProdukNagariPage() {
