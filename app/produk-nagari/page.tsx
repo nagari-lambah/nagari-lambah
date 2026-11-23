@@ -8,7 +8,7 @@ const produkUtamaCBB = {
   gambar: "/image/produk/cbb-bunglin.png",
   deskripsi: "Alat bantu komunikasi alternatif dan augmentatif (AAC) berbasis visual interaktif...",
   spesifikasi: [
-    "Material kayu & papan visual ramah anak",
+    "Material Bodi akrilik tebal 3 mm & papan visual ramah anak",
     "Simbol komunikasi visual kontras tinggi",
     "Desain ergonomis & portabel",
     "Hasil hilirisasi riset pendampingan UMBJ, UNP, dan Kemdiktisaintek"
@@ -34,10 +34,10 @@ const produkMeubeler = [
     id: 2,
     kategori: "Meubeler Kantor",
     nama: "Meja Kerja",
-    gambar: "/image/produk/meja-biro2.jpeg",
+    gambar: "/image/produk/meja-biro.jpeg",
     deskripsi:
       "Berbagai model meja kayu fungsional untuk kebutuhan rumah tangga, perkantoran nagari, maupun ruang kelas sekolah.",
-    harga: "Mulai Rp 2.850.000",
+    harga: "Mulai Rp 3.850.000",
     pesanWa:
       "https://wa.me.",
   },
@@ -48,7 +48,7 @@ const produkMeubeler = [
     gambar: "/image/produk/meja-belajar.jpeg",
     deskripsi:
       "Meja dan kursi belajar kayu ergonomis untuk ruang kelas maupun rumah dengan konstruksi kokoh dan lapisan finishing tahan lama.",
-    harga: "Mulai Rp 550.000 / unit",
+    harga: "Mulai Rp 650.000 / set",
     pesanWa:
       "https://wa.me.",
   },
@@ -75,7 +75,7 @@ export default function ProdukNagariPage() {
             Etalase Produk Inovasi Masyarakat Nagari Lambah — Program Kosabangsa 2026
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-            Sinergi pemberdayaan masyarakat dan hilirisasi inovasi teknologi tepat guna bersama Pemerintah Nagari Lambah, Universitas Mercubaktijaya Padang (UMBJ), dan Universitas Negeri Padang (UNP).
+            Sinergi pemberdayaan masyarakat dan hilirisasi inovasi teknologi tepat guna bersama Pemerintah Nagari Lambah, Universitas Mercubaktijaya (UMBJ) Padang, dan Universitas Negeri Padang (UNP).
           </p>
         </div>
       </section>
@@ -92,7 +92,7 @@ export default function ProdukNagariPage() {
                 Kelompok Pengrajin Lambah Sakato
               </h2>
               <p className="mt-3 leading-7 text-slate-600">
-                Unit produksi berbasis masyarakat di Nagari Lambah, hasil pendampingan Program Kosabangsa 2026 bersama UMBJ dan UNP.
+                Unit produksi berbasis masyarakat di Nagari Lambah, hasil pendampingan Program Kosabangsa 2026 bersama Universitas Mercubaktijaya dan Universitas Negeri Padang.
               </p>
             </div>
 
