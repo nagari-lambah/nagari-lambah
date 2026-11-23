@@ -11,6 +11,7 @@ const menu = [
   { label: "Pemerintahan", href: "#pemerintahan" },
   { label: "TP-PKK", href: "/tp-pkk" },
   { label: "Lembaga", href: "#lembaga" },
+  { label: "Produk Nagari", href: "/produk-nagari" }, // Mengarah ke halaman khusus
   { label: "PPID", href: "/ppid" },
   { label: "Berita", href: "/berita" },
   { label: "Galeri", href: "/galeri" },

@@ -7,7 +7,22 @@ const menu = [
   { label: "Pemerintahan", href: "/#pemerintahan" },
   { label: "TP-PKK", href: "/tp-pkk" },
   { label: "Lembaga", href: "/#lembaga" },
-  { label: "Produk Nagari", href: "/produk-nagari" },
+  {
+    label: "Produk Nagari",
+    href: "/produk-nagari",
+    subMenu: [
+      {
+        label: "Profil & SK Kelompok Pengrajin",
+        desc: "SK Wali Nagari No. 68 Tahun 2025",
+        href: "/produk-nagari#profil-pengrajin",
+      },
+      {
+        label: "Katalog Produk Kosabangsa",
+        desc: "Media CBB Bunglin & Produk Turunan",
+        href: "/produk-nagari#katalog-produk",
+      },
+    ],
+  },
   { label: "PPID", href: "/ppid" },
   { label: "Berita", href: "/berita" },
   { label: "Galeri", href: "/galeri" },
@@ -24,7 +39,7 @@ const daftarProduk = [
     spesifikasi: [
       "Material ramah anak, kokoh, dan tahan lama",
       "Simbol visual kontras tinggi & mudah dipahami",
-      "Desain ergonomis & portabel untuk sekolah maupun rumah",
+      "Desain ekonomis & portabel untuk sekolah maupun rumah",
     ],
     harga: "Hubungi Pengrajin / Sesuai Paket",
     katalogPdf: "/dokumen/katalog-cbb-bunglin.pdf",
@@ -34,7 +49,7 @@ const daftarProduk = [
     id: 2,
     kategori: "Produk Turunan · Inovasi Pengrajin",
     nama: "Produk Turunan Kelompok Pengrajin Lambah Sakato",
-    gambar: "/image/produk/produk-turunan.jpg",
+    gambar: "/image/produk/produk-turunan.png",
     deskripsi: "Pengembangan produk kreatif dan edukatif turunan dari program pendampingan inovasi masyarakat Nagari Lambah.",
     spesifikasi: [
       "Diproduksi langsung oleh pengrajin lokal terlatih",
@@ -56,36 +71,138 @@ export default function ProdukNagariPage() {
         </div>
       </div>
 
+      {/* HEADER NAVBAR DENGAN DROPDOWN SUB-MENU */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/image/logo-agam.png" alt="Logo Kabupaten Agam" width={46} height={54} priority className="h-[52px] w-auto object-contain" />
+          {/* Logo & Identitas Nagari */}
+          <a href="/" className="flex items-center gap-3">
+            <Image
+              src="/image/logo-agam.png"
+              alt="Logo Kabupaten Agam"
+              width={46}
+              height={54}
+              priority
+              className="h-[52px] w-auto object-contain"
+            />
             <div>
-              <h1 className="text-lg font-black tracking-wide text-[#082f57] sm:text-xl">NAGARI LAMBAH</h1>
-              <p className="text-[11px] text-slate-500 sm:text-xs">Kecamatan Ampek Angkek · Kabupaten Agam</p>
+              <h1 className="text-lg font-black tracking-wide text-[#082f57] sm:text-xl">
+                NAGARI LAMBAH
+              </h1>
+              <p className="text-[11px] text-slate-500 sm:text-xs">
+                Kecamatan Ampek Angkek · Kabupaten Agam
+              </p>
             </div>
-          </Link>
+          </a>
 
+          {/* Navigasi Desktop */}
           <nav className="hidden items-center gap-4 text-[13px] font-semibold text-slate-700 xl:flex">
-            {menu.map((item) => (
-              <Link key={item.label} href={item.href} className={`whitespace-nowrap transition hover:text-amber-600 ${item.href === "/produk-nagari" ? "font-bold text-amber-600" : ""}`}>
-                {item.label}
-              </Link>
-            ))}
+            {menu.map((item) =>
+              item.subMenu ? (
+                <div key={item.label} className="group relative">
+                  <a
+                    href={item.href}
+                    className="inline-flex items-center gap-1 whitespace-nowrap py-2 transition hover:text-amber-600"
+                  >
+                    <span>{item.label}</span>
+                    <svg
+                      className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </a>
+
+                  {/* Panel Dropdown Sub-Menu */}
+                  <div className="invisible absolute left-0 top-full w-64 translate-y-1 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    {item.subMenu.map((sub) => (
+                      <a
+                        key={sub.label}
+                        href={sub.href}
+                        className="block rounded-xl px-3.5 py-2.5 transition hover:bg-amber-50"
+                      >
+                        <p className="text-xs font-bold text-[#082f57] group-hover:text-amber-700">
+                          {sub.label}
+                        </p>
+                        <p className="mt-0.5 text-[11px] text-slate-500">
+                          {sub.desc}
+                        </p>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="whitespace-nowrap py-2 transition hover:text-amber-600"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
           </nav>
 
+          {/* Tombol PPID & Menu Mobile */}
           <div className="flex items-center gap-2">
-            <Link href="/ppid" className="hidden rounded-xl bg-[#082f57] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#0b467d] md:inline-flex">Layanan PPID</Link>
+            <a
+              href="/ppid"
+              className="hidden rounded-xl bg-[#082f57] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#0b467d] md:inline-flex"
+            >
+              Layanan PPID
+            </a>
+
+            {/* Dropdown Menu Ponsel / Tablet */}
             <details className="relative xl:hidden">
-              <summary className="cursor-pointer list-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-[#082f57]">Menu</summary>
-              <div className="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
-                {menu.map((item) => (
-                  <Link key={item.label} href={item.href} className={`block px-4 py-3 text-sm font-semibold hover:bg-slate-50 hover:text-amber-600 ${item.href === "/produk-nagari" ? "bg-amber-50 text-amber-700" : "text-slate-700"}`}>
-                    {item.label}
-                  </Link>
-                ))}
+              <summary className="cursor-pointer list-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-[#082f57]">
+                Menu
+              </summary>
+              <div className="absolute right-0 mt-2 max-h-[80vh] w-64 overflow-y-auto rounded-2xl border border-slate-200 bg-white py-1 shadow-xl">
+                {menu.map((item) =>
+                  item.subMenu ? (
+                    <div
+                      key={item.label}
+                      className="border-y border-slate-100 bg-slate-50/70"
+                    >
+                      <a
+                        href={item.href}
+                        className="block px-4 pt-3 pb-1 text-sm font-bold text-[#082f57] hover:text-amber-600"
+                      >
+                        {item.label}
+                      </a>
+                      <div className="pb-2">
+                        {item.subMenu.map((sub) => (
+                          <a
+                            key={sub.label}
+                            href={sub.href}
+                            className="block py-2 pl-7 pr-4 text-xs font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-700"
+                          >
+                            ↳ {sub.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-amber-600"
+                    >
+                      {item.label}
+                    </a>
+                  )
+                )}
               </div>
             </details>
+          import Image from "next/image";
+import Link from "next/link";
+
           </div>
         </div>
       </header>
@@ -104,38 +221,61 @@ export default function ProdukNagariPage() {
               Pendanaan Kemdiktisaintek · Program Kosabangsa 2026
             </span>
           </div>
+
           <h1 className="max-w-4xl text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
-            Etalase Produk Inovasi Masyarakat Nagari Lambah — <span className="text-amber-300">Program Kosabangsa 2026</span>
-            <span className="block text-xl font-bold text-slate-200 sm:mt-2 sm:text-2xl">(Pendanaan Kemdiktisaintek)</span>
+            Etalase Produk Inovasi Masyarakat Nagari Lambah —{" "}
+            <span className="text-amber-300">Program Kosabangsa 2026</span>
+            <span className="block text-xl font-bold text-slate-200 sm:mt-2 sm:text-2xl">
+              (Pendanaan Kemdiktisaintek)
+            </span>
           </h1>
+
           <p className="mt-5 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg">
-            Sinergi pemberdayaan masyarakat dan hilirisasi inovasi teknologi tepat guna bersama Pemerintah Nagari Lambah, Universitas Mercubaktijaya Padang (UMBJ), dan Universitas Negeri Padang (UNP).
+            Sinergi pemberdayaan masyarakat dan hilirisasi inovasi teknologi tepat
+            guna bersama Pemerintah Nagari Lambah, Universitas Mercubaktijaya
+            Padang (UMBJ), dan Universitas Negeri Padang (UNP).
           </p>
         </div>
       </section>
 
-      <section className="relative z-10 -mt-8 px-4 sm:px-6">
+      <section id="profil-pengrajin" className="relative z-10 -mt-8 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8 lg:p-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
+          <div className="grid gap-8 lg:grid-cols-[1.35fr_0.85fr] lg:items-start">
+            <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-800">
-                <span>🏛️ Legalitas & Produsen Resmi</span>
+                <span>🏛️ Profil Kelompok Pengrajin</span>
               </div>
-              <h2 className="mt-3 text-2xl font-black text-[#082f57] sm:text-3xl">Kelompok Pengrajin Lambah Sakato</h2>
+              <h2 className="mt-3 text-2xl font-black text-[#082f57] sm:text-3xl">
+                Kelompok Pengrajin Lambah Sakato
+              </h2>
               <p className="mt-3 leading-7 text-slate-600">
-                Unit produksi berbasis masyarakat di Nagari Lambah yang berfokus pada pembuatan produk kreatif, edukatif, dan alat bantu inovatif hasil pendampingan Program Kosabangsa 2026.
+                Unit produksi berbasis masyarakat di Nagari Lambah yang berfokus pada pembuatan produk kreatif, edukatif, dan alat bantu inovatif hasil pendampingan Program Kosabangsa 2026 bersama Universitas Mercubaktijaya Padang (UMBJ) dan Universitas Negeri Padang (UNP).
               </p>
             </div>
-            <div className="shrink-0 rounded-2xl border border-[#082f57]/15 bg-slate-50 p-5 lg:w-80">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Dasar Penetapan</p>
-              <p className="mt-1 text-base font-black text-[#082f57]">SK Wali Nagari Lambah</p>
-              <p className="text-sm font-bold text-amber-600">Nomor 68 Tahun 2025</p>
-              <p className="mt-2 text-xs text-slate-500">Jorong Lambah Tangah, Kec. Ampek Angkek, Kab. Agam</p>
+
+            <div className="rounded-2xl border-2 border-[#082f57]/15 bg-gradient-to-br from-slate-50 to-blue-50/50 p-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#082f57]">Dokumen Legalitas Resmi</span>
+              <h3 className="mt-2 text-lg font-black text-[#082f57]">Keputusan Wali Nagari Lambah</h3>
+              <p className="text-base font-extrabold text-amber-600">Nomor 68 Tahun 2025</p>
+              <p className="mt-2 text-xs leading-5 text-slate-600">
+                Tentang Pembentukan dan Pengukuhan Pengurus Kelompok Pengrajin Lambah Sakato Nagari Lambah, Kecamatan Ampek Angkek, Kabupaten Agam.
+              </p>
+              <div className="mt-5 flex flex-col gap-2.5">
+                <a href="/dokumen/sk-kelompok-pengrajin-lambah-sakato-2025.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#082f57] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#0b467d]">
+                  <span>📜</span>
+                  <span>Lihat Dokumen SK (PDF)</span>
+                </a>
+                <a href="/dokumen/sk-kelompok-pengrajin-lambah-sakato-2025.pdf" download className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#082f57]/30 bg-white px-4 py-2.5 text-sm font-bold text-[#082f57] transition hover:bg-slate-100">
+                  <span>⬇️</span>
+                  <span>Unduh Salinan SK</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="px-4 py-16 sm:px-6 lg:py-24">
+
+      <section id="katalog-produk" className="px-4 py-16 sm:px-6 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="font-bold uppercase tracking-[0.22em] text-amber-600">Katalog Inovasi</p>
