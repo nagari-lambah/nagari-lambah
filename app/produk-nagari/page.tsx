@@ -59,6 +59,7 @@ const daftarProduk = [
     harga: "Hubungi Pengrajin / Custom",
     katalogPdf: "/dokumen/katalog-produk-turunan.pdf",
     pesanWa: "https://wa.me.",
+
   },
 ];
 export default function ProdukNagariPage() {
