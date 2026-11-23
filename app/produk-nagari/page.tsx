@@ -200,9 +200,6 @@ export default function ProdukNagariPage() {
                 )}
               </div>
             </details>
-          import Image from "next/image";
-import Link from "next/link";
-
           </div>
         </div>
       </header>
