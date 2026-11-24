@@ -6,6 +6,11 @@ import Image from "next/image";
 
 const NOMOR_WA_PENGRAJIN = "62895618462853";
 
+const buatLinkWa = (namaProduk: string, aksi = "menanyakan detail") => {
+  const pesan = `Halo Pengrajin Lambah Sakato, saya ingin ${aksi} produk ${namaProduk}.`;
+  return `https://wa.me{NOMOR_WA_PENGRAJIN}?text=${encodeURIComponent(pesan)}`;
+};
+
 interface LightboxData {
   src: string;
   alt: string;
@@ -26,9 +31,9 @@ const produkUtamaCBB = {
   ],
   harga: "Hubungi Pengrajin / Sesuai Paket",
   katalogPdf: "/dokumen/katalog-cbb-bunglin.pdf",
-  pesanWa: `https://whatsapp.com{NOMOR_WA_PENGRAJIN}&text=${encodeURIComponent(
+  pesanWa: buatLinkWa(
     "Halo Pengrajin Lambah Sakato, saya tertarik memesan/menanyakan detail produk Media Communication Board Bunglin (CBB)."
-  )}`,
+  ),
   pesanEmail: "mailto:nagari.lambah@gmail.com",
 };
 
@@ -41,9 +46,7 @@ const produkMeubeler = [
     deskripsi:
       "Lemari kayu kokoh buatan tangan pengrajin Nagari Lambah dengan konstruksi kuat, pengerjaan halus, dan ukuran yang dapat disesuaikan (custom).",
     harga: "Mulai Rp 2.500.000",
-    pesanWa: `https://whatsapp.com{NOMOR_WA_PENGRAJIN}&text=${encodeURIComponent(
-      "Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail produk Lemari Pakaian & Lemari Arsip Kayu."
-    )}`,
+    pesanWa: buatLinkWa("Lemari Pakaian & Lemari Arsip Kayu"),
   },
   {
     id: 2,
@@ -53,9 +56,8 @@ const produkMeubeler = [
     deskripsi:
       "Berbagai model meja kayu fungsional untuk kebutuhan rumah tangga, perkantoran nagari, maupun ruang kelas sekolah.",
     harga: "Mulai Rp 3.850.000",
-    pesanWa: `https://whatsapp.com{NOMOR_WA_PENGRAJIN}&text=${encodeURIComponent(
+    pesanWa: buatLinkWa("Meja Kerja"),
       "Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail produk Meja Kerja."
-    )}`,
   },
   {
     id: 3,
@@ -65,9 +67,8 @@ const produkMeubeler = [
     deskripsi:
       "Meja dan kursi belajar kayu ergonomis untuk ruang kelas maupun rumah dengan konstruksi kokoh dan lapisan finishing tahan lama.",
     harga: "Mulai Rp 650.000 / set",
-    pesanWa: `https://whatsapp.com{NOMOR_WA_PENGRAJIN}&text=${encodeURIComponent(
+    pesanWa: buatLinkWa("Meja Belajar"),
       "Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail produk Meja Belajar."
-    )}`,
   },
 ];
 
