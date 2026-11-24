@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Image from "next/image";
 
-const NOMOR_WA_PENGRAJIN = "62895618462853";
+const NOMOR_WA = "62895618462853";
 
-const buatLinkWa = (namaProduk: string, aksi = "menanyakan detail") => {
-  const pesan = `Halo Pengrajin Lambah Sakato, saya ingin ${aksi} produk ${namaProduk}.`;
-  return `https://wa.me{NOMOR_WA_PENGRAJIN}?text=${encodeURIComponent(pesan)}`;
+const buatLinkWa = (namaProduk: string) => {
+  const pesan = `Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail & pemesanan produk ${namaProduk}.`;
+  return `https://wa.me{NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
 };
 
 interface LightboxData {
@@ -31,9 +31,7 @@ const produkUtamaCBB = {
   ],
   harga: "Hubungi Pengrajin / Sesuai Paket",
   katalogPdf: "/dokumen/katalog-cbb-bunglin.pdf",
-  pesanWa: buatLinkWa(
-    "Halo Pengrajin Lambah Sakato, saya tertarik memesan/menanyakan detail produk Media Communication Board Bunglin (CBB)."
-  ),
+  pesanWa: buatLinkWa("Media Communication Board Bunglin (CBB)"),
   pesanEmail: "mailto:nagari.lambah@gmail.com",
 };
 
@@ -57,7 +55,6 @@ const produkMeubeler = [
       "Berbagai model meja kayu fungsional untuk kebutuhan rumah tangga, perkantoran nagari, maupun ruang kelas sekolah.",
     harga: "Mulai Rp 3.850.000",
     pesanWa: buatLinkWa("Meja Kerja"),
-      "Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail produk Meja Kerja."
   },
   {
     id: 3,
@@ -68,7 +65,6 @@ const produkMeubeler = [
       "Meja dan kursi belajar kayu ergonomis untuk ruang kelas maupun rumah dengan konstruksi kokoh dan lapisan finishing tahan lama.",
     harga: "Mulai Rp 650.000 / set",
     pesanWa: buatLinkWa("Meja Belajar"),
-      "Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail produk Meja Belajar."
   },
 ];
 
