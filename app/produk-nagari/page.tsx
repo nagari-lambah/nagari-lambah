@@ -6,9 +6,12 @@ import Image from "next/image";
 
 const NOMOR_WA = "62895618462853";
 
-const buatLinkWa = (namaProduk: string) => {
-  const pesan = `Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail & pemesanan produk ${namaProduk}.`;
-  return `https://wa.me{NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
+const buatLinkWa = (namaProduk?: string) => {
+  const pesan = namaProduk
+    ? `Halo Pengrajin Lambah Sakato, saya ingin menanyakan detail & pemesanan produk ${namaProduk}.`
+    : "Halo Kelompok Pengrajin Lambah Sakato, saya ingin berkonsultasi mengenai pemesanan produk.";
+  // PERBAIKAN: Tambahkan '/' dan '$' sebelum {NOMOR_WA}
+  return `https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(pesan)}`;
 };
 
 interface LightboxData {
@@ -380,10 +383,9 @@ export default function ProdukNagariPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
+              {/* PERBAIKAN: Gunakan buatLinkWa() */}
               <a
-                href={`https://wa.me{NOMOR_WA_PENGRAJIN}?text=${encodeURIComponent(
-                  "Halo Kelompok Pengrajin Lambah Sakato, saya ingin berkonsultasi mengenai pemesanan produk."
-                )}`}
+                href={buatLinkWa()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl bg-amber-500 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-amber-400"
